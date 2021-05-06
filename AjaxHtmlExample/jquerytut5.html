@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Ajax</title>
+</head>
+<body>
+    <h1>Lear Ajax JQuery</h1>
+    <div id="output"></div>
+    <button id="clickMe">Click Here</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>       
+        $('#clickMe').click(webData);
+        function webData(){
+            //var url = 'https://jsonplaceholder.typicode.com/posts/1';
+            var url = 'https://api.spacexdata.com/v3/launches';
+            $.get(url,output);  
+        }
+
+        function output(data){
+            //console.log(data);
+            console.log(data[1]);
+           // $('#output').html('<h2>'+data.title+'</h2><p>'+data.body+'</p>');           
+           $('#output').html(`<h2>${data[1].flight_number}</h2><p>${data[1].details}</p>`);
+        }
+    </script>
+</body>
+</html>
